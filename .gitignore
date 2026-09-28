@@ -1,0 +1,17 @@
+# deps / build
+node_modules/
+dist/
+*.tsbuildinfo
+
+# verification artifacts (regenerate with `npm run verify`)
+verification/
+
+# misc
+.DS_Store
+*.local
+.env
+.env.*
+
+# logs
+npm-debug.log*
+*.log

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#050507" />
+    <title>APEX 26 — Interactive 3D Formula 1 Grid</title>
+    <meta
+      name="description"
+      content="Explore the 2026 Formula 1 season in 3D: rotate a race car, switch team liveries, inspect its parts, and dive into driver and team profiles."
+    />
+    <meta name="color-scheme" content="dark" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="APEX 26 — Interactive 3D Formula 1 Grid" />
+    <meta
+      property="og:description"
+      content="Rotate a 3D F1 car, switch liveries, inspect its parts and browse the 2026 grid."
+    />
+    <meta property="og:url" content="https://example.com/" />
+    <meta property="og:image" content="https://example.com/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/fonts/saira-condensed-800.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/saira-condensed-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "APEX 26",
+        "description": "Interactive 3D Formula 1 website for the 2026 season.",
+        "url": "https://example.com/"
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="font-family: system-ui; padding: 2rem; color: #f4f5f7; background: #050507">
+        APEX 26 needs JavaScript for its 3D experience. Please enable it to continue.
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

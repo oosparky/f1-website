@@ -1,0 +1,235 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------ */
+/* Fonts — self-hosted (no runtime CDN)                                */
+/* ------------------------------------------------------------------ */
+
+@font-face {
+  font-family: 'Saira Condensed';
+  src: url('/fonts/saira-condensed-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Saira Condensed';
+  src: url('/fonts/saira-condensed-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Saira Condensed';
+  src: url('/fonts/saira-condensed-800.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('/fonts/barlow-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('/fonts/barlow-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('/fonts/barlow-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ------------------------------------------------------------------ */
+/* Theme tokens                                                        */
+/* ------------------------------------------------------------------ */
+
+@theme {
+  --font-display: 'Saira Condensed', 'Arial Narrow', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Barlow', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* carbon fibre darks */
+  --color-carbon-950: #050507;
+  --color-carbon-900: #0a0b0e;
+  --color-carbon-850: #0f1014;
+  --color-carbon-800: #14151a;
+  --color-carbon-700: #1c1e25;
+  --color-hairline: #24262e;
+
+  /* chrome + text */
+  --color-chrome: #d8dbe2;
+  --color-chalk: #f4f5f7;
+  --color-fog: #a9adb7;
+  --color-mute: #7d7d8b;
+
+  /* team accents */
+  --color-race-red: #ff3b30;
+  --color-race-blue: #4f8cff;
+  --color-race-orange: #ff8a1f;
+  --color-race-teal: #00d2b4;
+
+  --animate-led: led 1.6s ease-in-out infinite;
+  --animate-drift: drift 18s linear infinite;
+  --animate-blip: blip 0.35s ease-out;
+
+  @keyframes led {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
+    }
+  }
+  @keyframes drift {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 60px 0;
+    }
+  }
+  @keyframes blip {
+    from {
+      transform: scale(0.6);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-carbon-950);
+  color: var(--color-chalk);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-race-red);
+  color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-race-red);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-carbon-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-carbon-700);
+  border-radius: 999px;
+  border: 2px solid var(--color-carbon-950);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-race-red);
+}
+
+/* ------------------------------------------------------------------ */
+/* Utilities                                                           */
+/* ------------------------------------------------------------------ */
+
+@utility glass {
+  background: rgb(255 255 255 / 0.04);
+  border: 1px solid var(--color-hairline);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+@utility glass-strong {
+  background: rgb(10 11 14 / 0.78);
+  border: 1px solid var(--color-hairline);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* diagonal carbon-fibre weave */
+@utility carbon {
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgb(255 255 255 / 0.022) 0 2px,
+      transparent 2px 6px
+    ),
+    repeating-linear-gradient(-45deg, rgb(255 255 255 / 0.022) 0 2px, transparent 2px 6px);
+}
+
+/* pit-lane dashed stripe */
+@utility pit-stripe {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-race-red) 0 24px,
+    transparent 24px 48px
+  );
+}
+
+@utility text-outline {
+  -webkit-text-stroke: 1px color-mix(in oklab, var(--color-chalk) 35%, transparent);
+  color: transparent;
+}
+
+@utility speed-lines {
+  background-image:
+    linear-gradient(90deg, rgb(255 255 255 / 0.06) 0 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.035) 0 1px, transparent 1px);
+  background-size: 140px 100%, 46px 100%;
+}
+
+@utility tabular-stats {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------------ */
+/* Reduced motion                                                      */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
