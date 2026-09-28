@@ -8,6 +8,11 @@ export default defineConfig({
   resolve: {
     alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
   },
+  // fixed so `npm run verify` (which defaults to :4174) always finds
+  // the preview server serving dist/
+  preview: {
+    port: 4174,
+  },
   build: {
     target: 'es2022',
     // three.js is deliberately loaded as its own cached chunk
